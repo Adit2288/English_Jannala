@@ -3,9 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>English Jannala</title>
+
+      <!-- Tailwind + DaisyUI -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- google font -->
+   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    html {scroll-behavior: smooth;}
+    /* apply bengali font only where needed */
+    .bn{font-family: 'Noto Sans Bengali', sans-serif;}
+    .container-max {max-width: 1200px;}
+    .scroll-mt-nav{ scroll-margin-top: 96px;}
+</style>
+
 </head>
-<body>
+<body class="bg-base-200 min-h-screen">
+    <!-- a navbar after login and it will remains hidden before log in -->
+    <nav id="navbar" class="hidden fixed top-0 left-0 right-0 z-50 bg-base-100/90 backdrop-blur border-b border-base-200">
+  <!-- main div -->
+     <div class="mx-auto container-max px-4">
+    <!-- brand -->
+       <div class="navbar-start gap-3">
+        <!-- this is for the avatar used fot jannala -->
+        <div class="avatar">
+            <div class="w-10 rounded-2xl bg-indigo-600 text-white grid place-items-center font-extrabold">J</div>
+        </div>
+
+        <!-- this div is for text section-->
+         <div class="leading-tight">
+            <div class="font-extrabold text-lg">Janala</div>
+            <div class="text-xs text-base-content/60 hidden sm:block">Vocabulary Learning</div>
+         </div>
+        <div>
+
+        </div>
+     </div>
+      <!--desktop nav-->
+       <div class="navbar-center hidden md:flex">
+        <!-- its a menu section menu are arrenged horizontally -->
+        <ul class="menu menu-horizontal px-1 gap-1">
+           <!-- its a learn list -->
+            <li><a href="#vocabulary" class="rounded-xl">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Learn 
+        </a>
+       </li>
+      <!-- its a faq list -->
+           <li><a href="#faq" class="rounded-xl">
+             <i class="fa-regular fa-circle-question"></i>
+              FAQ
+           </a>
+        </li>
+        </ul>
+      </div>
+
+      <!-- right -->
+       <div class="navbar-end gap-2">
+        <!-- mobile menu -->
+         <div class="dropdown dropdown-end md:hidden">
+            <button class="btn btn-ghost btn-sm" tabindex="0">
+                 <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-2xl w-44">
+               <li><a href="#vocabulary"><i class="fa-solid fa-graduation-cap"></i> Learn</a></li>
+              <li><a href="#faq"><i class="fa-regular fa-circle-question"></i> FAQ</a></li> 
+            </ul>
+         </div>
+
+       </div>
+   </div>
+
+    </nav>
+   <!-- Main -->
+    <main class="mx-auto container-max px-4">
+       <div id="navSpacer" class="hidden h-[88px]"></div>
+       <!-- Banner (Loading Only) -->
+        <section id="banner" class="py-10 md:py-16 hero-bg">
+           <!-- banner main div -->
+         <div class="grid lg:grid-cols-2 gap-10 items-center">
+               <!-- left -->
+                <div class="space-y-5">
+                   <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+                     Learn Vocabualary <span class="text-indigo-600">Fast</span> With Janala
+                   </h1>
+                   <p class="text-base-content/70 md:text-lg max-w-xl">
+            Login to start lessons, practice words, open details modal, and listen to pronunciation.
+                   </p>
+
+                   <!-- Login Card -->
+             <div class="card bg-base-100 shadow-xl rounded-3xl max-w-xl">
+               <!-- login card -->
+               <div class="card-body">
+                 <h2 class="card-title text-xl">Login</h2>
+           <!-- for user name  -->
+                 <label for="" class="form-control w-full">
+                     <div class="label"><span class="label-text">Your Name</span></div>
+                     <input id="nameInput" type="text" placeholder="Type your name" class="input input-bordered w-full rounded-xl">
+                 </label>
+
+                 <label for="" class="form-control w-full">
+                  <div class="label"><span class="label-text">Password</span></div>
+                  <input id="passInput" type="password" placeholder="password is 123456" class="input input-bordered w-full rounded-xl">
+                 </label>
+
+                 <button id="btnLogin" class="btn bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl mt-2">
+                         <i class="fa-solid fa-lock-open"></i>
+                Login
+                 </button>
+               
+                 <p class="text-xs text-base-content/60 mt-1"> Hint: Password is <span class="font-bold">123456</span></p>
+
+               </div>
+
+             </div>       
+
+                </div>
+
+                <!-- Right -->
+                 <div class="flex justify-center lg:justify-end">
+                  <div class="w-full max-w-lg">
+                      <div class="card bg-base-100 shadow-xl rounded-3xl overflow-hidden">
+                        <div class="p-7">
+                            <div class="text-7xl">📚</div>
+                            <h3 class="font-extrabold text-2xl mt-3">Let's learn together</h3>
+                            <p class="text-base-content/70 mt-2">
+                           Pick a lesson → load words → check meaning/pronunciation → open details modal → practice.
+                            </p>
+                        </div>
+
+             <div class="bg-base-200 p-6">
+                <div class="stats shadow w-full">
+                  <div class="stat">
+                    <div class="stat-title">Lessons</div>
+                    <div id="bannerLessonsCount" class="stat-value text-indigo-600">--</div>
+                    <div class="stat-desc">Loaded from API</div>
+                  </div>
+                  <div class="stat">
+                    <div class="stat-title">Words</div>
+                    <div id="bannerWordsCount" class="stat-value">--</div>
+                    <div class="stat-desc">Explore vocabulary</div>
+                  </div>
+                </div>
+              </div>
+
+                      </div>
+                  </div>
+                 </div>
+           </div>
+        </section>
+
+        <!-- vocabulary -->
+         <section id="vocabulary" class="hidden py-10 md:py-14 scroll-mt-nav">
+            <div class="text-center mb-6">
+               <h2 class="text-2xl md:text-4xl font-extrabold">
+                  <span class="text-sky-500">Let's</span> Learn Vocabularies
+               </h2>
+            </div>
+            <!-- space for buttons -->
+            <div id="lessonButtons" class="flex flex-wrap gap-2 justify-center mb-6"></div>
+            <!-- Default state -->
+             <div id="vocabDefault" class="mt-4">
+               <div class="bg-base-100 rounded-3xl shadow p-10 flex flex-col items-center justify-center text-center">
+                  <div class="text-6xl opacity-60">📘</div>
+                  <p class="text-sm text-base-content/60 mt-4 bn">একটি Lesson নির্বাচন করুন
+                  </p>
+                  <h3 class="text-2xl font-semibold mt-2 bn">নেক্সট Lesson এ যান</h3>
+               </div>
+             </div>
+             <!-- Spinner -->
+              <div id="spinner" class="hidden justify-center my-10">
+             <span class="loading loading-spinner loading-lg text-primary"></span>
+              </div>
+              <!-- Empty state -->
+               <div id="nowordState" class="hidden mt-4">
+                <div class="bg-base-100 rounded-3xl shadow p-12 text-center">
+                  <div class="text-7xl opacity-60">⚠️</div>
+                  <p class="text-sm text-base-content/60 mt-4 bn">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি</p>
+                  <h3 class="text-3xl mt-2 bn">নেক্সট Lesson এ যান</h3>
+                </div>
+               </div>
+
+               <!-- word panel -->
+                <div id="wordsPanel" class="hidden mt-4 bg-base-300/40 rounded-3xl p-5 md:p-7">
+                  <div id="wordsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  </div>
+                </div>
+         </section>
+
+             <!-- FAQ -->
+    <section id="faq" class="hidden py-10 md:py-14 scroll-mt-nav">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl md:text-4xl font-extrabold">FAQ</h2>
+        <p class="text-base-content/70 mt-2">Common JavaScript interview questions.</p>
+      </div>
+
+      <div class="space-y-3 max-w-3xl mx-auto">
+        <div class="collapse collapse-plus bg-base-100 shadow">
+          <input type="radio" name="faq-accordion" checked />
+          <div class="collapse-title text-lg font-semibold">Difference between var, let, and const</div>
+          <div class="collapse-content text-base-content/80">
+            <p><b>var</b> is function-scoped; <b>let</b> and <b>const</b> are block-scoped. <b>const</b> can’t be reassigned.</p>
+          </div>
+        </div>
+
+        <div class="collapse collapse-plus bg-base-100 shadow">
+          <input type="radio" name="faq-accordion" />
+          <div class="collapse-title text-lg font-semibold">Difference between map(), forEach(), and filter()</div>
+          <div class="collapse-content text-base-content/80">
+            <p><b>map()</b> returns a new array, <b>forEach()</b> returns nothing, <b>filter()</b> returns matching items.</p>
+          </div>
+        </div>
+
+        <div class="collapse collapse-plus bg-base-100 shadow">
+          <input type="radio" name="faq-accordion" />
+          <div class="collapse-title text-lg font-semibold">Arrow functions vs regular functions</div>
+          <div class="collapse-content text-base-content/80">
+            <p>Arrow functions don’t bind their own <code>this</code>; regular functions do.</p>
+          </div>
+        </div>
+
+        <div class="collapse collapse-plus bg-base-100 shadow">
+          <input type="radio" name="faq-accordion" />
+          <div class="collapse-title text-lg font-semibold">How JavaScript Promises work</div>
+          <div class="collapse-content text-base-content/80">
+            <p>Promises represent async operations with states: pending → fulfilled/rejected. Use <code>then/catch/finally</code>.</p>
+          </div>
+        </div>
+
+        <div class="collapse collapse-plus bg-base-100 shadow">
+          <input type="radio" name="faq-accordion" />
+          <div class="collapse-title text-lg font-semibold">How closures work in JavaScript</div>
+          <div class="collapse-content text-base-content/80">
+            <p>A closure lets a function remember variables from its outer scope even after it returns.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- FOOTER -->
+    <footer id="footer" class="py-10">
+      <div class="bg-base-100 border border-base-200 rounded-3xl p-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white grid place-items-center font-extrabold">J</div>
+            <div>
+              <div class="font-extrabold text-lg">Janala</div>
+              <div class="text-xs text-base-content/60">Frontend only • Tailwind + DaisyUI</div>
+            </div>
+          </div>
+
+          <div class="flex gap-2">
+            <a class="btn btn-ghost btn-sm" target="_blank" rel="noreferrer" href="https://github.com/"><i class="fa-brands fa-github text-lg"></i></a>
+            <a class="btn btn-ghost btn-sm" target="_blank" rel="noreferrer" href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin text-lg"></i></a>
+            <a class="btn btn-ghost btn-sm" target="_blank" rel="noreferrer" href="https://www.facebook.com/"><i class="fa-brands fa-facebook text-lg"></i></a>
+            <a class="btn btn-ghost btn-sm" target="_blank" rel="noreferrer" href="https://twitter.com/"><i class="fa-brands fa-x-twitter text-lg"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+   </main>
     
 </body>
 </html>
